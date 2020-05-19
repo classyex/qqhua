@@ -2,7 +2,7 @@
 logs/
 .idea/
 
-/target/
+**/target/
 /out/
 !.mvn/wrapper/maven-wrapper.jar
 
