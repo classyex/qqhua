@@ -2,13 +2,11 @@ package controllers;
 
 import deaddrop.Basic;
 import org.joda.time.DateTime;
-import play.data.FormFactory;
 import play.libs.Files;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
 
-import javax.inject.Inject;
 import java.nio.file.Paths;
 
 import static java.lang.String.format;
@@ -24,7 +22,7 @@ public class DecryptController extends Controller {
 
             Basic decoder = new Basic(new String[]{originalFilePath});
             String encryptedData = new String(decoder.decode_data());
-            return ok(encryptedData);
+            return ok(views.html.decrypt.render(encryptedData));
         } else {
             return badRequest().flashing("error", "Missing file");
         }
